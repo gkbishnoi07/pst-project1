@@ -49,9 +49,8 @@
 
     
         .hero {
-           background-image: url('pst-project1
-/.gym pic.jpg
-');
+           background-image: url('/assets/images/gym-pic.jpg');
+
             background-repeat: no-repeat;
             background-size: 100% 100%;
             color: white;
