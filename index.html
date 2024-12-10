@@ -1,0 +1,196 @@
+<html >
+<head>
+   
+    <title>Workout Planner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+    
+        .hero {
+            background-image: url('next.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero .cta-button {
+            background-color: white;
+            color: #3b82f6;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .cta-button:hover {
+            background-color: #f3f4f6;
+        }
+
+        
+        .features {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 0;
+            margin: auto;
+        }
+
+        .feature {
+            background-color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 30%;
+        }
+
+        .feature h2 {
+            margin: 15px 0;
+            color: #1f2937;
+        }
+
+        .feature p {
+            color: #6b7280;
+        }
+
+        
+        .footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 50px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            width: 60%;
+        }
+
+        .footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+  
+    <nav class="navbar">
+        <div class="logo">......</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Workouts</a>
+            <a href="#">Progress</a>
+            <a href="#">Community</a>
+        </div>
+        <button  href="#">Login</button>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Transform Your Fitness Journey</h1>
+            <p>Personalized workouts, tracking, and motivation</p>
+            <a href="loginPage.html" class="cta-button">Get Started</a>
+            <!-- <button onclick="fsafsafsafas">button</button> -->
+        </div>
+    </header>
+
+
+    <section class="container features">
+        <div class="feature" id="cus">
+            <h2>Custom Workouts</h2>
+            <p>Tailored exercise plans for your fitness goals</p>
+        </div>
+        <div class="feature">
+            <h2>Progress Tracking</h2>
+            <p>Monitor your fitness journey in real-time</p>
+        </div>
+        <div class="feature">
+            <h2>INTENSITY</h2>
+            <p>Increase the intensity of the workout </p>
+        </div>
+    </section>
+
+    <footer class="footer container">
+        <div class="footer-section">
+            <h3>.......</h3>
+            <p>Your personal fitness companion</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+           
+        </div>
+        <div class="footer-section">
+            <h4>Connect</h4>
+          
+        </div>
+    </footer>
+    <script>
+        const costom=document.getElementById('cus')
+        
+
+    </script>
+</body>
+</html>
