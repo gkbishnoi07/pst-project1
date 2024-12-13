@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+.profile-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%; 
+    max-width: 350px; 
+}
+
+.profile-container h2 {
+    text-align: center;
+    margin: 0 0 20px; 
+    color: #333;
+}
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #3b82f6;
+            outline: none;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background: #3b82f6;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            color: #3b82f6;
+        }
+        .level-image, .goal-image {
+            width: 100%;
+            height: auto;
+            display: none;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .profile-pic-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #profilePicPreview {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;  
+            object-fit: cover;  
+            border: 3px solid #3b82f6;
+            aspect-ratio: 1 / 1;  
+        }
+        .file-input {
+            display: none;
+        }
+        .file-label {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Profile</h2>
+        
+        <!-- Profile Picture Upload -->
+        <div class="profile-pic-container">
+            <img id="profilePicPreview" src="https://via.placeholder.com/150" alt="Profile Picture">
+            <br>
+            <input type="file" id="profilePicInput" class="file-input" accept="image/*" onchange="previewProfilePic(event)">
+            <label for="profilePicInput" class="file-label">Upload Profile Pic</label>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" placeholder="Enter your height">
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" placeholder="Enter your weight">
+        </div>
+        <div class="form-group">
+            <label for="level">Level</label>
+            <select id="level" onchange="showLevelImage()">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="professional">Professional</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="goal">Goal</label>
+            <select id="goal" onchange="showGoalImage()">
+                <option value="fat_loss">Fat Loss</option>
+                <option value="weight_gain">Weight Gain</option>
+            </select>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Submit</button>
+        <div class="message" id="message">Profile Updated!</div>
+        
+        <!-- Level and Goal Images -->
+        <img id="beginnerImage" class="level-image" src="beginner.jpg" alt="Beginner">
+        <img id="intermediateImage" class="level-image" src="intermediate.jpg" alt="Intermediate">
+        <img id="professionalImage" class="level-image" src="professional.jpg" alt="Professional">
+        
+        <img id="fatLossImage" class="goal-image" src="https://www.aaynaclinic.com/wp-content/uploads/2021/01/weightLoss-Intro.jpg.webp" alt="Fat Loss">
+        <img id="weightGainImage" class="goal-image" src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2500467.jpg" alt="Weight Gain">
+    </div>
+    
+    <script>
+        function submitForm() {
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+        }
+
+        function previewProfilePic(event) {
+            const input = event.target;
+            const preview = document.getElementById('profilePicPreview');
+            
+            const reader = new FileReader();
+            reader.onload = function(){
+                preview.src = reader.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function showLevelImage() {
+            const level = document.getElementById('level').value;
+            document.getElementById('beginnerImage').style.display = 'none';
+            document.getElementById('intermediateImage').style.display = 'none';
+            document.getElementById('professionalImage').style.display = 'none';
+
+            if (level === 'beginner') {
+                document.getElementById('beginnerImage').style.display = 'block';
+            } else if (level === 'intermediate') {
+                document.getElementById('intermediateImage').style.display = 'block';
+            } else if (level === 'professional') {
+                document.getElementById('professionalImage').style.display = 'block';
+            }
+        }
+
+        function showGoalImage() {
+            const goal = document.getElementById('goal').value;
+            document.getElementById('fatLossImage').style.display = 'none';
+            document.getElementById('weightGainImage').style.display = 'none';
+
+            if (goal === 'fat_loss') {
+                document.getElementById('fatLossImage').style.display = 'block';
+            } else if (goal === 'weight_gain') {
+                document.getElementById('weightGainImage').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
