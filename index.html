@@ -1,20 +1,29 @@
-<html >
+<html>
 <head>
-   
     <title>Workout Planner</title>
     <link rel="stylesheet" href="stylr.css">
+    <style>
+        #intensityButton:hover {
+            background-color: #000000; 
+            cursor: pointer;
+            
+        }
+    </style>
 </head>
 <body>
-  
     <nav class="navbar">
-        <div class="logo">......</div>
+        <div class="logo">
+            <a href="profile.html">
+                <img src="profileLogo.png" alt="Profile Logo" style="width: 40px; height: 40px; border-radius: 50%;">
+            </a>
+        </div>
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#">Workouts</a>
             <a href="#">Progress</a>
             <a href="#">Community</a>
         </div>
-        <button  href="#">Login</button>
+        <button href="#">Login</button>
     </nav>
 
     <header class="hero">
@@ -22,10 +31,8 @@
             <h1>Transform Your Fitness Journey</h1>
             <p>Personalized workouts, tracking, and motivation</p>
             <a href="loginPage.html" class="cta-button">Get Started</a>
-            <!-- <button onclick="fsafsafsafas">button</button> -->
         </div>
     </header>
-
 
     <section class="container features">
         <div class="feature" id="cus">
@@ -37,8 +44,10 @@
             <p>Monitor your fitness journey in real-time</p>
         </div>
         <div class="feature">
-            <h2>INTENSITY</h2>
-            <p>Increase the intensity of the workout </p>
+            <button id="intensityButton" class="cta-button" style="width: 100%; height: 100%; background: none; border: none; text-align: left; padding: 0;">
+                <h2>INTENSITY</h2>
+                <p>Increase the intensity of the workout</p>
+            </button>
         </div>
     </section>
 
@@ -51,17 +60,18 @@
             <h4>Quick Links</h4>
             <a href="#">About</a>
             <a href="#">Contact</a>
-           
         </div>
         <div class="footer-section">
             <h4>Connect</h4>
-          
         </div>
     </footer>
-    <script>
-        const costom=document.getElementById('cus')
-        
 
+    <script>
+        
+        const intensityButton = document.getElementById('intensityButton');
+        intensityButton.addEventListener('click', () => {
+            window.location.href = 'workout.html';
+        });
     </script>
 </body>
 </html>
