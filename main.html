@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workout Planner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3b82f6;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        .navbar:hover {
+            background-color: #60a5fa;
+        }
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .navbar .nav-links a:hover {
+            color: #f3f4f6;
+        }
+        .navbar button {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #3b82f6;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .navbar button:hover {
+            background-color: #1d4ed8;
+            color: #fff;
+        }
+        .hero {
+            background-image: url('next.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            transition: background 0.3s ease;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: slideInFromLeft 1s ease-in-out;
+        }
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            animation: slideInFromRight 1s ease-in-out;
+        }
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        .hero .cta-button {
+            background-color: white;
+            color: #3b82f6;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .hero .cta-button:hover {
+            background-color: #f3f4f6;
+            transform: scale(1.05);
+        }
+        .features {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 0;
+            gap: 20px;
+        }
+        .feature {
+            background-color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+        }
+        .feature h2 {
+            margin: 20px 0;
+            color: #1f2937;
+            font-size: 28px;
+        }
+        .feature p {
+            color: #6b7280;
+            font-size: 18px;
+        }
+        .calendar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 50px 0;
+        }
+        .footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer-section h4, .footer-section h3 {
+            margin-bottom: 20px;
+        }
+        .footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #9ca3af;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .calendar {
+            max-width: 800px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .calendar-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .calendar-header button {
+            background: white;
+            border: none;
+            color: #007bff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .calendar-header button:hover {
+            background: #e6e6e6;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background-color: #ddd;
+        }
+
+        .calendar-day {
+            background: white;
+            padding: 20px;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #ddd;
+        }
+
+        .calendar-day h3 {
+            margin: 0;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .workout {
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .workout.cardio {
+            background-color: #28a745;
+        }
+
+        .workout.strength {
+            background-color: #ffc107;
+        }
+
+        .workout.yoga {
+            background-color: #6f42c1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Workout Planner</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Workouts</a>
+            <a href="#">Progress</a>
+            <a href="#">Community</a>
+        </div>
+        <!-- <a href="profile.html">Login</a> -->
+         <img src="next.png" height="20px" width="20px" href="https://www.instagram.com/accounts/login/">
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Transform Your Fitness Journey</h1>
+            <p>Personalized workouts, tracking, and motivation</p>
+            <a href="loginPage.html" class="cta-button">Get Started</a>
+        </div>
+    </header>
+
+    <section class="container features">
+        <div class="feature" id="cus">
+            <h2>Custom Workouts</h2>
+            <p>Tailored exercise plans for your fitness goals</p>
+        </div>
+        <div class="feature">
+            <h2>Progress Tracking</h2>
+            <p>Monitor your fitness journey in real-time</p>
+        </div>
+        <div class="feature">
+            <h2>Intensity</h2>
+            <p>Increase the intensity of the workout</p>
+        </div>
+    </section>
+
+    
+    <div class="calendar">
+        <div class="calendar-header">
+            <button onclick="prevMonth()">&lt; Prev</button>
+            <h2>December 2024</h2>
+            <button onclick="nextMonth()">Next &gt;</button>
+        </div>
+        <div class="calendar-grid">
+            <div class="calendar-day">
+                <h3>1</h3>
+                <div class="workout cardio">Cardio</div>
+            </div>
+            <div class="calendar-day">
+                <h3>2</h3>
+                <div class="workout strength">Strength</div>
+            </div>
+            <div class="calendar-day">
+                <h3>3</h3>
+                <div class="workout yoga">Yoga</div>
+            </div>
+            <!-- Add more days here -->
+            <div class="calendar-day">
+                <h3>4</h3>
+            </div>
+            <div class="calendar-day">
+                <h3>5</h3>
+            </div>
+            <div class="calendar-day">
+                <h3>6</h3>
+            </div>
+            <div class="calendar-day">
+                <h3>7</h3>
+            </div>
+        </div>
+    </div>
+    <footer class="footer container">
+        <div class="footer-section">
+            <h3>Workout Planner</h3>
+            <p>Your personal fitness companion</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-section">
+            <h4>Connect</h4>
+        </div>
+    </footer>
+    <script>
+        const custom = document.getElementById('cus');
+    </script>
+</body>
+</html>
